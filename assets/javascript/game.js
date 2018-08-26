@@ -24,9 +24,7 @@ document.onkeyup = function(event) {
         guessedLetters = [];
     }
 
-    if (userGuess = event.key){
-        $("directionsText").hide();
-    }
+  
     // user key inputs
     if (userGuess === computerGuess) {
         wins++;
