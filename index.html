@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <script src="assets/javascript/game.js"></script>
 </head>
-<body class="text-center">
+<body  id="game" class="text-center">
 
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
           <header class="masthead mb-auto">
@@ -20,9 +20,11 @@
     
           <main role="main" class="inner cover">
             <h1 class="cover-heading">Guess what letter I'm thinking of</h1>
-            <p id="userChoice-text" class="lead">Wins: </p>
-            <p id="userChoice-text" class="lead">Wins: </p>
-            <p id="userChoice-text" class="lead">Wins: </p>
+            <p id="directions-text">Press any letter to get started</p><br>
+            <h2 id="userchoice-text"></h2>
+            <h3 id="wins-text" class="green"></h3>
+            <h3 id="losses-text" class="red"></h3><br>
+            <p id="guessesRemaining-text" class="yellow"></p>
           </main>
     
           <footer class="mastfoot mt-auto">

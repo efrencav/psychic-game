@@ -19,7 +19,9 @@ a:hover {
   border: .05rem solid #fff;
 }
 
-
+h1, h2, h3, h4, h5, h6 {
+  color: #fff;
+}
 /*
  * Base structure
  */
@@ -42,7 +44,16 @@ body {
   max-width: 42em;
 }
 
+.green {
+  color: chartreuse;
+}
 
+.red {
+  color: red;
+}
+.yellow {
+  color: yellow;
+}
 /*
  * Header
  */

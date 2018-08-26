@@ -12,52 +12,46 @@
 var letters = ["a", "e", "i", "o", "u"];
 var wins = 0;
 var losses = 0;
-var guesses = 0;
+var guessesRemaining = 10;
+var guessedLetters = [];
 
 document.onkeyup = function(event) {
-    // key pressed
-    var user = event.key;
-    // computer guess and random number generator
-    var computer = letters[Math.floor(Math.random() * letters.length)];
+    var userGuess = event.key;
+    guessedLetters.push(userGuess);
+    var computerGuess = letters[Math.floor(Math.random() * letters.length)];
+    var reset = function() {
+        guessesRemaining = 10;
+        guessedLetters = [];
+    }
+
+    if (userGuess = event.key){
+        $("directionsText").hide();
+    }
     // user key inputs
-    if (user === "a") {
+    if (userGuess === computerGuess) {
         wins++;
+        guessesRemaining = 9;
+        alert("Yay, you won!");
     } else {
-        guesses++;
-        losses++;
-        console.log("Nice try, but it\'s not correct");
+        guessesRemaining--;
     }
-    if (user === "e") {
-        wins++;
-    } else {
-        guesses++;
+    if (guessesRemaining === 0) {
         losses++;
-        console.log("Nice try, but it\'s not correct");
+        guessesRemaining = 9;
+        reset();
     }
-    if (user === "i") {
-        wins++;
-    } else {
-        guesses++;
-        losses++;
-        console.log("Nice try, but it\'s not correct");
-    }
-    if (user === "o") {
-        wins++;
-    } else {
-        guesses++;
-        losses++;
-        console.log("Nice try, but it\'s not correct");
-    }
-    if (user === "u") {
-        wins++;
-    } else {
-        guesses++;
-        losses++;
-        console.log("Nice try, but it\'s not correct");
-    }
-   
-    var usersChoice = document.getElementById("userChoice-text");
+    
+    // Create variables that hold references to the places in the HTML where we want to display things.
+    var directionsText = document.getElementById("directions-text");
+    var userChoiceText = document.getElementById("userchoice-text");
     var winsText = document.getElementById("wins-text");
     var lossesText = document.getElementById("losses-text");
-    var guessesText = document.getElementById("guesses-text");
-}
+    var guessesRemainingText = document.getElementById("guessesRemaining-text");
+
+    // Display the user and computer guesses, and wins/losses/ties.
+    userChoiceText.textContent = "You chose: " + userGuess;
+    winsText.textContent = "wins: " + wins;
+    lossesText.textContent = "losses: " + losses;
+    guessesRemainingText.textContent = "You have " + guessesRemaining + " guesses remaining.";
+    directionsText.textContent = "Press any key to get started";
+};
