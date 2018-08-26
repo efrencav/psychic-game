@@ -54,6 +54,9 @@ body {
 .yellow {
   color: yellow;
 }
+.gray {
+  color: #666;
+}
 /*
  * Header
  */
